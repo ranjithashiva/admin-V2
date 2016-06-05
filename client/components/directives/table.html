@@ -1,0 +1,47 @@
+<div class="col-md-12 angularTable">  
+  <div ng-if="data.length == 0" class="panel-body">   No Data Available  </div>
+  <div ng-if="data.length&gt; 0" class="panel-body">
+    <table class="table footable">
+      <thead>
+        <tr>         
+         
+          <th ng-repeat="header in preferenceColumns" ng-click="sortBy(header)" data-hide="{{checkForHide($index)}}" class="cursor-pointer">{{header.uiname}}
+            <div class="pull-right"><i ng-if="tableOptions.isSortAvailable" ng-class="{'fa fa-sort-asc':listOrderType==='asc'  &amp;&amp; (listOrderBy === header.sortBy || listOrderBy === header.name), 'fa fa-sort-desc':listOrderType==='desc' &amp;&amp; (listOrderBy === header.sortBy || listOrderBy === header.name) }"></i></div>
+          </th>
+          <th data-toggle="true" class="footable-last-column"></th>
+        </tr>
+      </thead>
+      <tbody ng-if="data.length &gt; 0">
+        <tr ng-repeat-start="row in data track by $index" ng-click="$event.stopPropagation();rowSelect($index,$event)" ng-class="{'activate': $index === selectedRow,'odd': $index%2==1,'even':$index%2==0}" class="cursor-pointer">
+          <td ng-if="tableOptions.showButton">
+            <button ng-if="!row.hide" ng-click="$event.stopPropagation();tableOptions.buttonClicked(row,$index)" class="btn btn-sm btn-primary">Hide</button>
+            <button ng-if="row.hide" ng-click="$event.stopPropagation();tableOptions.buttonClicked(row,$index)" class="btn btn-sm btn-danger">Unhide</button>
+          </td>
+          <td ng-if="showCheckbox">
+            <div class="checkbox table-checkbox">
+              <label>
+                <input type="checkbox" ng-checked="checkedRows[$index]" ng-click="checked($index)"/>
+              </label>
+            </div>
+          </td>
+          <td ng-if="tableOptions.showStar==true"><span ng-class="{'fa fa-star fa-2x':true, 'yellowcl':row.favourite==true,'whitecl':row.favourite !=true}" ng-click="$event.stopPropagation();markFavouritePatient($index)"></span></td>
+          <td ng-repeat="column in preferenceColumns track by $index"><span ng-switch="preferenceColumns[$index].dataType"><span ng-switch-when="class"><span ng-if="row[column.name] != null" class="{{row[column.name]}}"></span></span><span ng-switch-when="date"><span ng-if="row[column.name] == null">N/A</span><span ng-if="row[column.name] != null">{{row[column.name] | dateFilter}}</span></span><span ng-switch-when="datetime"><span ng-if="row[column.name] == null">N/A</span><span ng-if="row[column.name] != null">{{row[column.name] | datetimeFilter}}</span></span><span ng-switch-when="link"><span ng-if="row[column.name] == null">N/A</span><span ng-if="row[column.name] != null"> <a ng-if="row.link != null &amp;&amp; row.link != undefined " href="{{row.link}}" target="_blank" ng-click="stopDefault(row.id,column.name)">{{row[column.name]}}</a><a ng-if="row.link == null || row.link == undefined " href="javascript:void(0)" ng-click="stopDefault(row.id,column.name)">{{row[column.name]}}</a></span></span><span ng-switch-when="classlink"><span ng-if="row[column.name] == null">N/A</span><span ng-if="row[column.name] != null" ng-click="stopDefault(row)" class="{{row[column.name]}}"> <a ng-if="row.link != null &amp;&amp; row.link != undefined " href="{{row.link}}" target="_blank" ng-click="stopDefault(row)"> <img src="{{row[column.name]}}"/></a><a ng-if="row.link == null || row.link == undefined " href="javascript:void(0)" ng-click="stopDefault(row)"> <img src="{{row[column.name]}}"/></a></span></span><span ng-switch-when="stringOrLink"><span ng-if="row[column.name] == null">N/A</span><span ng-if="row[column.name] !=  null &amp;&amp; row[column.name] != &quot;Final&quot;">{{row[column.name]}}</span><span ng-if="row[column.name] != null &amp;&amp; row[column.name] == &quot;Final&quot;"> <a ng-if="row.link != null &amp;&amp; row.link != undefined " href="{{row.link}}" target="_blank" ng-click="stopDefault(row.id,column.name)">{{row[column.name]}}</a><a ng-if="row.link == null || row.link == undefined " href="javascript:void(0)" ng-click="stopDefault(row.id,column.name)">{{row[column.name]}}        </a></span></span><span ng-switch-default=""><span ng-if="row[column.name] == null">N/A</span><span ng-if="row[column.name] != null " class="{{row[column.name]}}"><span ng-switch="column.name"><span ng-switch-when="doctorName"><a href="/users/{{row[column.name]}}" ng-click="$event.stopPropagation()"> {{row[column.name]}} </a></span><span ng-switch-default="">{{row[column.name]}}</span></span></span></span></span></td>
+          <td data-value="1" ng-click="toggleRow($event);" class="footable-last-column"> </td>
+        </tr>
+        <tr ng-repeat-end="ng-repeat-end">
+          <td ng-if="selectedDrillDownRow[$index]" colspan="{{preferenceColumns.length}}">
+            <drilldown-uIcomponent template-url="tableOptions.drilldownUIcomponent" data="data[$index]" controller="tableOptions.drilldownController"></drilldown-uIcomponent>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div ng-if="data.length==0">No results found</div>
+  </div>
+  <div style="overflow:hidden;" ng-if="tableOptions.pagination" class="row row-no-margin">
+    <div class="col-md-offset-6 col-md-6 bottom-row">
+      <div class="btn-group pull-right">
+        <label ng-click="changePagination(items)" ng-repeat="items in paginationvalues" ng-class="{'btn-primary' : items == limit } " class="btn btn-default btn-sm">{{items}}</label>
+      </div>
+    </div>
+  </div>
+</div>

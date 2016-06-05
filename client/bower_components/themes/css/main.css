@@ -1,0 +1,39 @@
+div#meters > div {
+  margin: 0 0 1em 0;
+}
+
+div#meters div.label {
+  display: inline-block;
+  font-weight: 400;
+  margin: 0 0.5em 0 0;
+  width: 3.5em;
+}
+
+div#meters div.value {
+  display: inline-block;
+}
+
+meter {
+  width: 40%;
+}
+
+}
+
+meter#instant {
+color: #0f9d58;
+}
+
+.grid {
+    width:232px;
+    display: inline-block;
+}
+
+.checkboxdemoSelectAll .demo-legend {
+  color: #3F51B5; }
+.checkboxdemoSelectAll .demo-fieldset {
+  border-style: solid;
+  border-width: 1px;
+  height: 100%; }
+.checkboxdemoSelectAll .demo-select-all-checkboxes {
+  padding-left: 30px; }
+  

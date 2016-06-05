@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <base href="/">
+  <title>ADMIN</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+  
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css" rel="stylesheet">
+
+  
+   <link rel="stylesheet" href="bower_components/jslib/angular/angular-material.min.css">  
+  <link href="bower_components/themes/css/custom.css" rel="stylesheet">
+  <link href="bower_components/themes/css/main.css" rel="stylesheet">
+  <link href="bower_components/themes/css/post.css" rel="stylesheet">
+  <link rel="stylesheet", href="bower_components/angular-toastr/dist/angular-toastr.min.css"> 
+
+
+
+  <link rel="stylesheet" href="bower_components/select2/select2.css" />
+  <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" />
+  <link rel="stylesheet" href="bower_components/angular-user-feedback/dist/angular-user-feedback.css" />
+  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
+  <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+  <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css" />
+  <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css" />
+  <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.style.css" />
+  <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+  
+  <link rel="stylesheet" href="app/app.css">
+  <link rel="stylesheet" href="app/home/home.css" />
+ 
+</head>
+
+<body ng-app="adminApp" ng-controller="MasterCtrl">
+ 
+  <div class="contentPane container-fluid">
+    <div class="ui-view-content" ui-view=""></div>
+  </div>
+  
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
+  <script src="bower_components/angular-socket-io/socket.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/restangular/dist/restangular.js"></script>
+  <script src="bower_components/select2/select2.js"></script>
+  <script src="bower_components/ui-select/src/select3.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+  <script src="bower_components/stacktrace-js/stacktrace.js"></script>
+  <script src="bower_components/ng-error-logger/dist/ng-error-logger.js"></script>
+  <script src="bower_components/html2canvas/build/html2canvas.js"></script>
+  <script src="bower_components/angular-user-feedback/dist/angular-user-feedback.js"></script>
+  <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+  <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.js"></script>
+  <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/nvd3/build/nv.d3.js"></script>
+  <script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+  <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+  <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
+  <script src="bower_components/angular-datatables/dist/plugins/colreorder/angular-datatables.colreorder.js"></script>
+  <script src="bower_components/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script>
+  <script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.js"></script>
+  <script src="bower_components/angular-datatables/dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js"></script>
+  <script src="bower_components/angular-datatables/dist/plugins/fixedheader/angular-datatables.fixedheader.js"></script>
+  <script src="bower_components/angular-datatables/dist/plugins/scroller/angular-datatables.scroller.js"></script>
+  <script src="bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
+
+  <!--<script type="text/javascript" src="bower_components/jslib/angular/angular.min.js"></script>  
+  <script type="text/javascript" src="bower_components/jslib/angular/angular-animate.min.js"></script>
+  <script type="text/javascript" src="bower_components/jslib/angular/angular-aria.min.js"></script>
+  <script type="text/javascript" src="bower_components/jslib/angular/angular-cookies.min.js"></script>
+  <script type="text/javascript" src="bower_components/jslib/angular/angular-messages.min.js"></script>
+  <script type="text/javascript" src="bower_components/jslib/angular/angular-material.min.js"></script>
+  <script type="text/javascript" src="bower_components/jslib/angular/angular-sanitize.min.js"></script>--> 
+  <script type="text/javascript" src="bower_components/jslib/angular/angular-route.min.js"></script> 
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+
+
+  
+
+  
+  <script src="app/app.js"></script>  
+  
+  <script src="app/master/master.controller.js"></script>
+  <script src="app/spinner/spinner.controller.js"></script>
+  <script src="app/login/login.js"></script>
+  <script src="app/login/login.controller.js"></script>
+  <script src="app/home/home.js"></script>
+  <script src="app/home/home.controller.js"></script>
+  <script src="app/account/account.js"></script>
+  <script src="app/account/account.controller.js"></script>
+  
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+
+<!-- [if gt IE 8] <!-->
+<html class="no-js">
+  
+  <body ng-app="adminApp" style="background-color:#DBDBDB;">
+    <div class="container">
+      <div class="col-xs-4"></div>
+      <div style="margin-top: 10%;" class="col-xs-4">
+        <form method="post" name="login-form" class="form-signin">
+          <h2 class="form-signin-heading">Please sign in</h2>
+          <label for="inputEmail" class="sr-only">UserId</label>
+          <input id="username" ng-model="user.username" type="text" name="username" placeholder="Email address" required="" autofocus="" style="margin-bottom: 5px;" class="form-control">
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input id="password" ng-model="user.password" type="password" name="password" placeholder="Password" required="" style="margin-bottom: 5px;" class="form-control">
+          <div>
+            <button type="submit" ng-click="login()" class="btn btn-lg btn-primary btn-block">Sign in</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-xs-4"></div>
+    </div>
+    
+  </body>
+</html>

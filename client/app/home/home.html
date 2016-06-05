@@ -1,0 +1,6 @@
+<div class="clearfix">
+  <tabset class="tab-animation">
+    <tab ng-repeat="tab in tabList" heading="{{tab.heading}}" active="tab.active" disable="tab.disabled" ui-sref="{{tab.state}}">   {{tab.heading}}</tab>
+  </tabset>
+</div>
+<div ui-view=""></div>
