@@ -27,12 +27,12 @@ angular.module('adminApp', [ 'ngRoute',
       return;
     $window.ga('send', 'pageview', { page: $location.path() });
   });
- $rootScope.$on('$stateChangeStart', function(event, next) {
-      /*Auth.isLoggedInAsync(function(loggedIn) {
+/* $rootScope.$on('$stateChangeStart', function(event, next) {
+      Auth.isLoggedInAsync(function(loggedIn) {
       if (next.authenticate && !loggedIn) {
         $location.path('/login');
       }
-    }); */   
-  });
+    });    
+  });*/
   
 }]);

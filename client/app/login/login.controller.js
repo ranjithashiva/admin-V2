@@ -15,7 +15,7 @@ angular.module('adminApp')
       if(currentUser) {
         var adType=currentUser.adType;
         if(adType==='SuperUser' || adType==='' || adType==='Admin') {          
-            $state.go('home');
+            $state.go('home.account');
         }
         else {
 	        var msg="Authentication not available for this current directory";
